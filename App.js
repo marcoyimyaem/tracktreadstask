@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Button, TouchableHighlight, Alert,Text,SafeAreaView,VirtualizedList, TextInput,TouchableOpacity } from "react-native";
+import { StyleSheet, View, Button, TouchableHighlight,Image, Alert,Text,SafeAreaView,VirtualizedList, TextInput,TouchableOpacity } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import SimpleLineIconsIcon from "react-native-vector-icons/SimpleLineIcons";
 import  {launchImageLibrary, launchCamera} from 'react-native-image-picker';
 // ###for image compression when uploaded from this test app
-import { Image } from 'react-native-compressor';
+// import { Image } from 'react-native-compressor';
 import {createStore} from 'redux';
 
 
@@ -159,8 +159,9 @@ const App = () => {
   //     isActive={true}
   //   />
   // )
-  
-  const DATA = store.getState();
+  let getdatastate = store.getState();
+  console.log(getdatastate.dataM);
+  const DATA = getdatastate.dataM;
   // ### the front-end declaration of the test hybrid app
   return (
     <View style={styles.container}>
