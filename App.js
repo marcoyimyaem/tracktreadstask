@@ -103,7 +103,7 @@ const App = () => {
           dataM:[
             ...state.dataM,{
               machine_name: action.machinedata.machine_name,
-              machine_reading: action.machinedata.machine_reading,
+              machine_reading: parseInt(action.machinedata.machine_reading),
               number_of_images: action.machinedata.number_of_images,
               id: nextdataMId(state.dataM)
             }
@@ -125,7 +125,7 @@ const App = () => {
   
   const [text_machine_name, onChangeText] = React.useState("");
   const [text_meter_reading, onChangeText2] = React.useState("");
-  const addmachinefrominput = () =>  {store.dispatch(addNewMachine({machine_name: text_machine_name,machine_reading: text_meter_reading ,number_of_images: 9})
+  let addmachinefrominput = () =>  {store.dispatch(addNewMachine({machine_name: text_machine_name,machine_reading: text_meter_reading ,number_of_images: 9})
   );
   Alert.alert('New Machine Added', text_machine_name+" "+text_meter_reading+ 'has been added', [
       { text: 'OK', onPress: () => console.log('OK Pressed') },
@@ -429,6 +429,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginLeft: 12
   },
+  
   item: {
     backgroundColor: "ghostwhite",
     height: 150,
